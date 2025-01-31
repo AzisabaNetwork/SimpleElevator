@@ -1,4 +1,8 @@
 name: SimpleElevator
 version: '${project.version}'
+authors: ["pino223", "miyabi0333"]
 main: net.azisaba.simpleelevator.SimpleElevator
 api-version: '1.16'
+permissions:
+  elevator.use:
+    default: true
