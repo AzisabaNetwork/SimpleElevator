@@ -50,7 +50,6 @@ public class CommonListener implements Listener {
     @EventHandler
     public void onElevatorUp(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        Bukkit.getLogger().info("aaa");
         if ( player.isOnGround() ) {
             return;
         }
@@ -100,13 +99,14 @@ public class CommonListener implements Listener {
         return IntStream.range(1, 3).allMatch(distance -> isSafe(baseFrom.getRelative(BlockFace.UP, distance)));
     }
 
+    //3ブロック以上の空間があるかの判定
     private Block tryFindFloor(Block baseFrom, BlockFace face) {
         Vector direction = face.getDirection();
         Location loc = baseFrom.getLocation().setDirection(direction);
         int maxDistance = baseFrom.getWorld().getMaxHeight();
         BlockIterator it = new BlockIterator(loc, 0, maxDistance);
 
-        Iterators.advance(it, maxDistance);
+        Iterators.advance(it, 3);
         for ( Block baseTo : Lists.newArrayList(it) ) {
             if ( isFloor(baseTo) ) {
                 return baseTo;
