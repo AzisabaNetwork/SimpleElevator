@@ -1,0 +1,4 @@
+name: SimpleElevator
+version: '${project.version}'
+main: net.azisaba.simpleelevator.SimpleElevator
+api-version: '1.16'
