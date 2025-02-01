@@ -50,7 +50,6 @@ public class CommonListener implements Listener {
     @EventHandler
     public void onElevatorUp(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        Bukkit.getLogger().info("aaa");
         if ( player.isOnGround() ) {
             return;
         }
@@ -94,7 +93,7 @@ public class CommonListener implements Listener {
     }
 
     private boolean isFloor(Block baseFrom) {
-        if ( baseFrom.getType() != SimpleElevator.INSTANCE.getConfig().get("baseBlockType", Material.DIAMOND_BLOCK)) {
+        if (!baseFrom.getType().name().equals(SimpleElevator.INSTANCE.getConfig().getString("baseBlockType", Material.DIAMOND_BLOCK.name()))) {
             return false;
         }
         return IntStream.range(1, 3).allMatch(distance -> isSafe(baseFrom.getRelative(BlockFace.UP, distance)));
@@ -106,7 +105,7 @@ public class CommonListener implements Listener {
         int maxDistance = baseFrom.getWorld().getMaxHeight();
         BlockIterator it = new BlockIterator(loc, 0, maxDistance);
 
-        Iterators.advance(it, maxDistance);
+        Iterators.advance(it, 3);
         for ( Block baseTo : Lists.newArrayList(it) ) {
             if ( isFloor(baseTo) ) {
                 return baseTo;
