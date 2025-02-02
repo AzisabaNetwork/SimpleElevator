@@ -41,8 +41,19 @@ public class CommonListener implements Listener {
         }
 
         Location playerTo = baseTo.getRelative(BlockFace.UP).getLocation();
+        playerTo.setX(playerTo.getX() + 0.5);
+        playerTo.setY(playerTo.getY() + 0.5);
+        playerTo.setZ(playerTo.getZ() + 0.5);
+
+        float yaw = player.getLocation().getYaw();
+        float pitch = player.getLocation().getPitch();
 
         player.teleport(playerTo);
+
+        playerTo.setYaw(yaw);
+        playerTo.setPitch(pitch);
+        player.teleport(playerTo);
+
         player.playSound(playerTo, Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
         player.getWorld().spawnParticle(Particle.TOTEM, playerTo, 50, 0.2, 0.2, 0.2, 0.5);
     }
@@ -82,8 +93,19 @@ public class CommonListener implements Listener {
         }
 
         Location playerTo = baseTo.getRelative(BlockFace.UP).getLocation();
+        playerTo.setX(playerTo.getX() + 0.5);
+        playerTo.setY(playerTo.getY() + 0.5);
+        playerTo.setZ(playerTo.getZ() + 0.5);
+
+        float yaw = player.getLocation().getYaw();
+        float pitch = player.getLocation().getPitch();
 
         player.teleport(playerTo);
+
+        playerTo.setYaw(yaw);
+        playerTo.setPitch(pitch);
+        player.teleport(playerTo);
+
         player.playSound(playerTo, Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
         player.getWorld().spawnParticle(Particle.TOTEM, playerTo, 50, 0.2, 0.2, 0.2, 0.5);
     }
