@@ -48,8 +48,6 @@ public class CommonListener implements Listener {
         float yaw = player.getLocation().getYaw();
         float pitch = player.getLocation().getPitch();
 
-        player.teleport(playerTo);
-
         playerTo.setYaw(yaw);
         playerTo.setPitch(pitch);
         player.teleport(playerTo);
@@ -99,8 +97,6 @@ public class CommonListener implements Listener {
 
         float yaw = player.getLocation().getYaw();
         float pitch = player.getLocation().getPitch();
-
-        player.teleport(playerTo);
 
         playerTo.setYaw(yaw);
         playerTo.setPitch(pitch);
